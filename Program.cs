@@ -71,7 +71,7 @@ int GetArrayElement(int row, int col, int[,] array)
 {
     return array[row, col];
 }
-
+/*
 Console.Write("Enter number of rows: ");
 rows = Convert.ToInt32(Console.ReadLine());
 Console.Write("Enter number of columns: ");
@@ -93,7 +93,7 @@ else
     int element = GetArrayElement(row, col, myArray50);
     Console.WriteLine($"Element [{row}, {col}] = {element}");
 }
-
+*/
 /* Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 Например, задан массив:
 1 4 7 2
@@ -102,12 +102,12 @@ else
 Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 */
 
-double GetRowAverage(int[,] array, int rowIndex)
+double GetRowAverage(int[,] array, int columnIndex)
 {
     double result = 0;
-    for(int i = 0; i < array.GetLength(1); i++)
-        result += array[rowIndex, i];
-    return result / array.GetLength(1);
+    for(int i = 0; i < array.GetLength(0); i++)
+        result += array[i, columnIndex];
+    return result / array.GetLength(0);
 }
 
 Console.Write("Enter number of rows: ");
@@ -121,7 +121,7 @@ max = Convert.ToInt32(Console.ReadLine());
 int[,] myArray52 = GenerateArray2DInt(rows, cols, min, max);
 PrintArray2DInt(myArray52);
 Console.Write("Average of each column is: ");
-for(int i = 0; i < rows; i++)
-    Console.Write(GetRowAverage(myArray52, i) + " ");
+for(int i = 0; i < cols; i++)
+    Console.Write(GetRowAverage(myArray52, i) + "; ");
 
 
