@@ -86,7 +86,7 @@ Console.Write("Enter number of the row: ");
 int row = Convert.ToInt32(Console.ReadLine());
 Console.Write("Enter number of the column: ");
 int col = Convert.ToInt32(Console.ReadLine());
-if(row < 0 || col < 0 || row > rows || col > cols)
+if(row < 0 || col < 0 || row >= rows || col >= cols)
     Console.WriteLine($"Entered element [{row}, {col}] does not exist!");
 else
 {
@@ -123,5 +123,5 @@ PrintArray2DInt(myArray52);
 Console.Write("Average of each column is: ");
 for(int i = 0; i < rows; i++)
     Console.Write(GetRowAverage(myArray52, i) + " ");
-    
+
 
