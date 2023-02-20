@@ -67,6 +67,11 @@ void PrintArray2DInt (int[,] array)
     }
 }
 
+int GetArrayElement(int row, int col, int[,] array)
+{
+    return array[row, col];
+}
+
 Console.Write("Enter number of rows: ");
 rows = Convert.ToInt32(Console.ReadLine());
 Console.Write("Enter number of columns: ");
@@ -77,3 +82,14 @@ Console.Write("Enter maximal value: ");
 max = Convert.ToInt32(Console.ReadLine());
 int[,] myArray50 = GenerateArray2DInt(rows, cols, min, max);
 PrintArray2DInt(myArray50);
+Console.Write("Enter number of the row: ");
+int row = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter number of the column: ");
+int col = Convert.ToInt32(Console.ReadLine());
+if(row < 0 || col < 0 || row > rows || col > cols)
+    Console.WriteLine($"Entered element [{row}, {col}] does not exist!");
+else
+{
+    int element = GetArrayElement(row, col, myArray50);
+    Console.WriteLine($"Element [{row}, {col}] = {element}");
+}
